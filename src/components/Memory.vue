@@ -15,6 +15,9 @@ export default {
         return false;
       }
     },
+    getImageUrl(name: string) {
+      return new URL(`../assets/${name}`, import.meta.url).href;
+    },
   },
 };
 </script>
@@ -32,7 +35,7 @@ export default {
     <div class="w-11/12 lg:w-1/2">
       <img
         class="mx-auto mb-8 lg:mb-0 lg:max-h-[500px] rounded-md"
-        :src="img"
+        :src="getImageUrl(img)"
         alt=""
       />
     </div>

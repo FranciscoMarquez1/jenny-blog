@@ -19,7 +19,7 @@ export default {
   >
     <div class="flex flex-row w-2/3 pl-4 lg:pl-24">
       <router-link to="/">
-        <img class="w-4 mt-1" src="../heart.svg" alt="heart" />
+        <img class="w-4 mt-1" src="/src/assets/heart.svg" alt="heart" />
       </router-link>
       <router-link to="/">
         <p class="ml-2 text-black font-normal hover:text-[#8F83FD]">

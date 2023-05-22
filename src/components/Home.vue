@@ -29,47 +29,47 @@ export default {
       images: [
         {
           id: 0,
-          photo: "../ConciertoBillie.jpg",
+          photo: "ConciertoBillie.jpg",
         },
         {
           id: 1,
-          photo: "../GraduacionPaco.jpg",
+          photo: "GraduacionPaco.jpg",
         },
         {
           id: 2,
-          photo: "../Boda.jpg",
+          photo: "Boda.jpg",
         },
         {
           id: 3,
-          photo: "../Playa.jpg",
+          photo: "Playa.jpg",
         },
         {
           id: 4,
-          photo: "../Selfie1.jpg",
+          photo: "Selfie1.jpg",
         },
         {
           id: 5,
-          photo: "../Cumple2021.jpg",
+          photo: "Cumple2021.jpg",
         },
         {
           id: 6,
-          photo: "../GraduacionMartha.jpg",
+          photo: "GraduacionMartha.jpg",
         },
         {
           id: 7,
-          photo: "../Tapalpa.jpg",
+          photo: "Tapalpa.jpg",
         },
         {
           id: 8,
-          photo: "../Selfie2.jpg",
+          photo: "Selfie2.jpg",
         },
         {
           id: 9,
-          photo: "../Feli.jpg",
+          photo: "Feli.jpg",
         },
         {
           id: 10,
-          photo: "../LaFlaca.jpg",
+          photo: "LaFlaca.jpg",
         },
       ],
     };
@@ -81,6 +81,9 @@ export default {
     onToggleGallery(slide = 0) {
       this.openingSlide = slide;
       this.isGalleryVisible = !this.isGalleryVisible;
+    },
+    getImageUrl(name: string) {
+      return new URL(`../assets/${name}`, import.meta.url).href;
     },
   },
   components: {
@@ -94,7 +97,7 @@ export default {
 
 <template>
   <section
-    class="flex flex-col relative h-[400px] bg-center bg-no-repeat bg-cover bg-[url(/../../Tulips.jpg)] items-center justify-center"
+    class="flex flex-col relative h-[400px] bg-center bg-no-repeat bg-cover bg-[url(/src/assets/Tulips.jpg)] items-center justify-center"
   >
     <h1 class="text-5xl font-extrabold text-white mb-8 text-center">
       Para la persona que más amo
@@ -122,7 +125,7 @@ export default {
             >
               <img
                 class="h-auto max-h-[600px] mx-auto mt-4 rounded-md"
-                src="/../../Razones.jpg"
+                src="/src/assets/Razones.jpg"
                 alt=""
               />
             </div>
@@ -162,7 +165,7 @@ export default {
           class="text-lg pt-2"
         >
           <img
-            :src="image.photo"
+            :src="getImageUrl(image.photo)"
             alt=""
             class="max-h-[350px] lg:max-w-[700px] lg:max-h-[800px] rounded-2xl shadow-md"
           />
@@ -184,7 +187,7 @@ export default {
     </p>
   </section>
   <section
-    class="pt-16 pb-16 lg:flex lg:justify-center bg-center bg-no-repeat bg-cover bg-[url(/../../test.png)]"
+    class="pt-16 pb-16 lg:flex lg:justify-center bg-center bg-no-repeat bg-cover bg-[url(/src/assets/cover.png)]"
   >
     <carousel :items-to-show="1" class="lg:w-1/4">
       <slide
@@ -220,7 +223,7 @@ export default {
     <div class="lg:gap-2 lg:grid lg:grid-cols-3">
       <div class="w-full rounded" v-for="image in images" :key="image.id">
         <img
-          :src="image.photo"
+          :src="getImageUrl(image.photo)"
           alt="image"
           @click="onToggleGallery(image.id)"
           class="max-h-[600px] mx-auto rounded-md"
